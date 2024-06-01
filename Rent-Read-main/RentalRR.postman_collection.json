@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "f1f278aa-2df5-43c8-840a-a8caa7cb2c74",
+		"name": "Rent Read",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34861998"
+	},
+	"item": [
+		{
+			"name": "forAdmin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/forAdmin"
+			},
+			"response": []
+		},
+		{
+			"name": "registerNewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Rutuz\",\r\n    \"lastname\" : \"Mirza\",\r\n    \"password\" : \"12341234\",\r\n    \"email\" : \"rutuz@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/v1/auth/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"rutuz@gmail.com\",\r\n    \"password\":\"12341234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/v1/auth/signin"
+			},
+			"response": []
+		},
+		{
+			"name": "forUserOnly",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2h3YW5pQGdtYWlsLmNvbSIsImlhdCI6MTcxNjQ4MTE1NSwiZXhwIjoxNzE2NDgyNTk1fQ.FuT_v0IlLiM09U8JphN-JfEdxFFWELVWQGRq-YQwA0g"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY0ODA5OTksImV4cCI6MTcxNjQ4MjQzOX0.9y-Hchdmd_EP-c7ElC2FqV4-CMzCo9dFTcADI-9Nb8c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "localhost:8080/api/v1/user/forUser"
+			},
+			"response": []
+		},
+		{
+			"name": "addBooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY0OTI1NTEsImV4cCI6MTcxNjQ5Mzk5MX0.-ta8a5-m2gUwtWamq4rkRCWNDDd5iErblQpkitTWBWI"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"book2\",\r\n    \"author\": \"kipling\",\r\n    \"genre\": \"action\",\r\n    \"availabilityStatus\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/v1/books/addBook"
+			},
+			"response": []
+		},
+		{
+			"name": "rentBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2h3YW5pQGdtYWlsLmNvbSIsImlhdCI6MTcxNjQ5MzM2NiwiZXhwIjoxNzE2NDk0ODA2fQ.3H-5BGJC3rK00qkXPgQ_Ogb2TO0kS52Ru-kHpiexXn4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/books/library/2/rent?email=rutuz@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"library",
+						"2",
+						"rent"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "rutuz@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returnBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/books/library/2/rent?email=rutuz@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"library",
+						"2",
+						"rent"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "rutuz@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getBookById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY3MDE3NDUsImV4cCI6MTcxNjcwMzE4NX0.HaCSDgzARrcCOQMRoymnK08s8TD-aKwLRWyq6YgAw6Y"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/v1/books/getBookById/2"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBookById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2h3YW5pQGdtYWlsLmNvbSIsImlhdCI6MTcxNjcwMjAyMSwiZXhwIjoxNzE2NzAzNDYxfQ.fPDiwWx0JrpPbpA0s562LQgEWiAssxc_vIfmA__UmTs"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/api/v1/books/deleteBook/2"
+			},
+			"response": []
+		},
+		{
+			"name": "updateBookById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY3MDI0OTMsImV4cCI6MTcxNjcwMzkzM30.QG6UYiCrInXvXYVJsF6xiCGKoMLDhyoejFZf1myuzDE"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"book2\",\r\n    \"author\": \"rutuz\",\r\n    \"genre\": \"fantasy\",\r\n    \"availabilityStatus\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/v1/books/updateBook/3"
+			},
+			"response": []
+		}
+	]
+}
